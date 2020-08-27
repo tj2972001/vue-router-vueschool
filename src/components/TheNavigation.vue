@@ -27,5 +27,6 @@ export default {
 <style>
 li {
   float: left;
+  margin-right: 10px;
 }
 </style>

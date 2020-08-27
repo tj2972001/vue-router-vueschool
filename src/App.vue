@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div class="intro">Welcome to travel-vue app</div>
     <TheNavigation />
     <router-view :key="$route.path" />
   </div>
@@ -34,5 +35,13 @@ export default {
 
 #nav a.travel-app-active-link {
   color: #ad0ea5;
+}
+ul {
+  list-style: none;
+}
+.intro {
+  text-align: left;
+  font-size: 40px;
+  color: rgb(11, 56, 56);
 }
 </style>
