@@ -1,5 +1,5 @@
 <template>
   <div>
-    <h1>Brazil Page</h1>
+    <h1>Panama Page</h1>
   </div>
 </template>
