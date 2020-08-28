@@ -1,5 +1,7 @@
 # vue-travel
 
+# visit live at : https://goofy-panini-800f18.netlify.app/
+
 ## Project setup
 
 ```
