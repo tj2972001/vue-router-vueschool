@@ -1,6 +1,7 @@
 <template>
   <div>
     <section class="destination">
+      <h2>id is {{ id }}</h2>
       <h1>{{ destination.name }}</h1>
       <div class="destination-details">
         <img :src="require(`@/assets/${destination.image}`)" alt="destination.name" />
@@ -11,10 +12,13 @@
       <h2>Top experiences in {{ destination.name }}</h2>
       <div class="cards">
         <div v-for="exp in destination.experiences" :key="exp.slug" class="card">
-          <img :src="require(`@/assets/${exp.image}`)" alt="exp.name" />
-          <div>{{ exp.name }}</div>
+          <router-link :to="{ name: 'experienceDetail', params: { expId: exp.slug } }">
+            <img :src="require(`@/assets/${exp.image}`)" alt="exp.name" />
+            <div>{{ exp.name }}</div>
+          </router-link>
         </div>
       </div>
+      <router-view :key="$route.path" />
     </section>
   </div>
 </template>
@@ -22,21 +26,24 @@
 <script>
 import store from "../store";
 export default {
-  data() {
-    return {
-      destinationId: this.$route.params.id
-    };
+  // data() {
+  //   return {
+  //     destinationId: this.$route.params.id
+  //   };
+  // },
+  props: {
+    id: {
+      type: Number,
+      required: true
+    }
   },
   computed: {
     destination() {
-      return store.destinations.find(
-        destination => destination.id === this.destinationId
-      );
+      return store.destinations.find(destination => destination.id === this.id);
     }
   }
 };
 </script>
-
 <style scoped>
 .destination-details {
   display: flex;
