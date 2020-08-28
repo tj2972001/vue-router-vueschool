@@ -1,7 +1,6 @@
 <template>
   <div>
     <section class="destination">
-      <h2>id is {{ id }}</h2>
       <h1>{{ destination.name }}</h1>
       <div class="destination-details">
         <img :src="require(`@/assets/${destination.image}`)" alt="destination.name" />
